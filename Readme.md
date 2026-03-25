@@ -6,28 +6,32 @@ This is a modern Python rewrite of [sttz/expresso](https://github.com/sttz/expre
 
 > **Credit:** The original [expresso](https://github.com/sttz/expresso) was created by [Adrian Stutz (sttz)](https://github.com/sttz) in C#/.NET. That project is no longer maintained (last updated October 2021) and does not work with recent ExpressVPN versions. Mr Expresso is a from-scratch Python rewrite based on the same native messaging protocol, with fixes for the latest ExpressVPN API changes.
 
-# Setup
+# Download
+
+**[Download the latest release here](https://github.com/mfq2412/mr-expresso/releases/latest).** Mr Expresso is a single Python script with zero dependencies — just download `expresso.py` and run it.
 
 ### Requirements
 
 * [ExpressVPN](https://www.expressvpn.com) desktop app installed and running
-* Python 3.8+
+* Python 3.8+ (pre-installed on macOS and most Linux distros)
 
-### Install
+### Quick Install
 
-Clone this repository and run directly:
+Download and place it in your scripts folder:
+
+```
+curl -L -o expresso.py https://github.com/mfq2412/mr-expresso/releases/latest/download/expresso.py
+chmod +x expresso.py
+python3 expresso.py --help
+```
+
+Or clone and install as a CLI tool:
 
 ```
 git clone https://github.com/mfq2412/mr-expresso.git
 cd mr-expresso
-python3 expresso.py --help
-```
-
-Or install as a CLI tool:
-
-```
 pip install .
-expresso --help
+mr-expresso --help
 ```
 
 ### How It Works
