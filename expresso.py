@@ -653,7 +653,14 @@ def main():
     sub.add_parser("disconnect", help="Disconnect from current VPN location")
     sub.add_parser("repl", help="Interactive mode for raw communication")
 
-    args = parser.parse_args()
+    # Make commands case-insensitive
+    raw_args = sys.argv[1:]
+    for i, arg in enumerate(raw_args):
+        if not arg.startswith("-") and arg.lower() in ("status", "locations", "connect", "disconnect", "repl"):
+            raw_args[i] = arg.lower()
+            break
+
+    args = parser.parse_args(raw_args)
     if not args.command:
         parser.print_help()
         sys.exit(1)
