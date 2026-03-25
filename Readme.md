@@ -2,37 +2,31 @@
 
 Mr Expresso is a command line interface to control the [ExpressVPN](https://www.expressvpn.com) app. It uses the same native messaging interface as the official ExpressVPN browser extensions.
 
-This is a modern Python rewrite of [sttz/expresso](https://github.com/sttz/expresso) by **[Adrian Stutz](https://sttz.ch)**, updated for compatibility with the latest ExpressVPN versions (v12+). Zero dependencies — just Python 3.
+This is a modern rewrite of [sttz/expresso](https://github.com/sttz/expresso) by **[Adrian Stutz](https://sttz.ch)**, updated for compatibility with the latest ExpressVPN versions (v12+).
 
-> **Credit:** The original [expresso](https://github.com/sttz/expresso) was created by [Adrian Stutz (sttz)](https://github.com/sttz) in C#/.NET. That project is no longer maintained (last updated October 2021) and does not work with recent ExpressVPN versions. Mr Expresso is a from-scratch Python rewrite based on the same native messaging protocol, with fixes for the latest ExpressVPN API changes.
+> **Credit:** The original [expresso](https://github.com/sttz/expresso) was created by [Adrian Stutz (sttz)](https://github.com/sttz) in C#/.NET. That project is no longer maintained (last updated October 2021) and does not work with recent ExpressVPN versions. Mr Expresso is a from-scratch rewrite based on the same native messaging protocol, with fixes for the latest ExpressVPN API changes.
 
-# Download
+# Setup
 
-**[Download the latest release here](https://github.com/mfq2412/mr-expresso/releases/latest).** Mr Expresso is a single Python script with zero dependencies — just download `expresso.py` and run it.
+[**Download the latest release here.**](https://github.com/mfq2412/mr-expresso/releases/latest) Mr Expresso is a self-contained executable and has no dependencies.
 
 ### Requirements
 
 * [ExpressVPN](https://www.expressvpn.com) desktop app installed and running
-* Python 3.8+ (pre-installed on macOS and most Linux distros)
 
-### Quick Install
+### Install
 
-Download and place it in your scripts folder:
+1. Download the zip for your platform from the [releases page](https://github.com/mfq2412/mr-expresso/releases/latest)
+2. Extract it
+3. Move `mr-expresso` to a directory in your PATH:
 
-```
-curl -L -o expresso.py https://github.com/mfq2412/mr-expresso/releases/latest/download/expresso.py
-chmod +x expresso.py
-python3 expresso.py --help
-```
-
-Or clone and install as a CLI tool:
-
-```
-git clone https://github.com/mfq2412/mr-expresso.git
-cd mr-expresso
-pip install .
+```bash
+unzip mr-expresso-2.0.0-osx-arm64.zip
+sudo mv mr-expresso /usr/local/bin/
 mr-expresso --help
 ```
+
+That's it. No Python, no pip, no dependencies — just the binary.
 
 ### How It Works
 
@@ -103,13 +97,13 @@ USAGE: mr-expresso [options] repl
 
 ### Check status
 ```
-$ python3 expresso.py status
+$ mr-expresso status
 Connected to 'Singapore - CBD' (singapore-cbd)
 ```
 
 ### List all locations
 ```
-$ python3 expresso.py locations
+$ mr-expresso locations
 
 --- Africa ---
 
@@ -123,48 +117,48 @@ Egypt (EG)
 
 ### Connect by country
 ```
-$ python3 expresso.py connect Germany
+$ mr-expresso connect Germany
 Connecting to 'Germany - Frankfurt - 1' (Germany)...
 Connected to 'Germany - Frankfurt - 1'
 ```
 
 ### Connect by location ID
 ```
-$ python3 expresso.py connect singapore-cbd
+$ mr-expresso connect singapore-cbd
 Connecting to 'Singapore - CBD'...
 Connected to 'Singapore - CBD'
 ```
 
 ### Connect to random server in a country
 ```
-$ python3 expresso.py connect --random US
+$ mr-expresso connect --random US
 Connecting to 'USA - San Francisco' (United States)...
 Connected to 'USA - San Francisco'
 ```
 
 ### Toggle connection
 ```
-$ python3 expresso.py connect --toggle Singapore
+$ mr-expresso connect --toggle Singapore
 Already connected to 'Singapore - CBD', disconnecting...
 Disconnected
 ```
 
 ### Change connected location
 ```
-$ python3 expresso.py connect -c Japan
+$ mr-expresso connect -c Japan
 Connecting to 'Japan - Tokyo' (Japan)...
 Connected to 'Japan - Tokyo'
 ```
 
 ### Disconnect
 ```
-$ python3 expresso.py disconnect
+$ mr-expresso disconnect
 Disconnected
 ```
 
 ### Interactive REPL
 ```
-$ python3 expresso.py repl
+$ mr-expresso repl
 Interactive mode. Type JSON-RPC messages, or use shortcuts:
   status    -> XVPN.GetStatus
   locations -> XVPN.GetLocations
@@ -202,7 +196,7 @@ Make sure the ExpressVPN desktop app is running (not just installed).
 ### Verbose output
 Use `-v` (info), `-vv` (debug), or `-vvv` (trace) to see what's happening:
 ```
-python3 expresso.py -vv status
+mr-expresso -vv status
 ```
 
 # Credits
