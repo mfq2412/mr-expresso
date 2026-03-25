@@ -8,6 +8,20 @@ Based on the original [expresso](https://github.com/sttz/expresso) by [Adrian St
 
 [Download the latest release here](https://github.com/mfq2412/mr-expresso/releases). mr-expresso is a self-contained executable and has no dependencies.
 
+### Install
+
+```bash
+# 1. Download and extract
+curl -L -o mr-expresso.zip https://github.com/mfq2412/mr-expresso/releases/latest/download/mr-expresso-2.0.0-osx-arm64.zip
+unzip mr-expresso.zip
+
+# 2. Install to your PATH
+sudo mv mr-expresso /usr/local/bin/
+
+# 3. Verify
+mr-expresso --version
+```
+
 # Usage
 
 ```
